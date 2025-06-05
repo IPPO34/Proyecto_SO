@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar Sesión</title>
+  <style>
+    body { 
+      font-family: sans-serif; 
+      background-color: #f0f0f0; 
+      padding: 40px 0; 
+      display: flex; 
+      justify-content: center; 
+    }
+
+    .container { 
+      max-width: 400px; 
+      background: white; 
+      padding: 20px; 
+      border: 1px solid #ccc; 
+      border-radius: 8px; 
+    }
+
+    h2 { 
+      text-align: center; 
+      color: #0B3B82; 
+    }
+
+    label { 
+      display: block; 
+      margin: 10px 0 5px; 
+      font-weight: bold; 
+    }
+    input { 
+      width: 100%; 
+      padding: 8px; 
+      margin-bottom: 15px; 
+      border: 1px solid #ccc; 
+      border-radius: 4px; 
+    }
+
+    button { 
+      width: 100%; 
+      padding: 10px; 
+      background-color: #0B3B82; 
+      color: white; 
+      border: none; 
+      border-radius: 4px; 
+      font-size: 16px; 
+      cursor: pointer; 
+    }
+
+    button:hover { 
+      background-color: #08457E; 
+    }
+
+    .mensaje { 
+      color: red; 
+      text-align: center; 
+      font-weight: bold; 
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Iniciar Sesión</h2>
+    <form action="/Login" method="POST">
+      <label for="nombre">Usuario:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena" required>
+
+      <button type="submit">Ingresar</button>
+      
+      {% if mensaje %}
+        <p class="mensaje">{{ mensaje }}</p>
+      {% endif %}
+    </form>
+  </div>
+</body>
+</html>

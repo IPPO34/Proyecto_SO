@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultar Carteras</title>
+    <style>
+    body {
+        font-family: sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+    }
+    .container {
+        width: 100%;
+        max-width: 700px;
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #0B3B82;
+    }
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+    label {
+        font-weight: bold;
+    }
+    select {
+        padding: 6px;
+        font-size: 14px;
+        width: 180px;
+    }
+    .btn {
+        padding: 6px 12px;
+        font-size: 14px;
+        background-color: #0B3B82;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background-color: #08457E;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #0B3B82;
+        color: white;
+    }
+    h3 {
+        text-align: center;
+        margin-top: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h2>Consultar Carteras</h2>
+    <form method="GET" action="/ConsultarCartera">
+        <label for="tipo">Tipo:</label>
+        <select name="tipo" id="tipo" required>
+        {% for t in tipos %}
+            <option value="{{ t[0] }}">{{ t[1] }}</option>
+        {% endfor %}
+        </select>
+        <button type="submit" class="btn">Buscar</button>
+        <a href="/Principal">
+        <button type="button" class="btn">Volver</button>
+        </a>
+    </form>
+
+    {% if resultados %}
+        <h3>Resultados:</h3>
+        <table>
+        <tr>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Fecha</th>
+            <th>Tipo</th>
+        </tr>
+        {% for fila in resultados %}
+        <tr>
+            <td>{{ fila[0] }}</td>
+            <td>{{ fila[1] }}</td>
+            <td>{{ fila[2] }}</td>
+            <td>{{ fila[3] }}</td>
+            <td>{{ fila[4] }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+    </div>
+</body>
+</html>
+

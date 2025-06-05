@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Principal</title>
+    <style>
+    body {
+        margin: 0;
+        font-family: sans-serif;
+        background-color: #f4f4f4;
+    }
+    .navbar {
+        background-color: #0B3B82;
+        padding: 15px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: right;
+        flex: 1;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        text-align: left;
+    }
+    .dropbtn {
+        background-color: #0B3B82;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 180px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    .dropdown-content a {
+        color: black;
+        padding: 10px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown-content a:hover {
+        background-color: #eee;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown:hover .dropbtn {
+        background-color: #08457E;
+    }
+    .main {
+        padding: 30px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+    <div class="dropdown">
+        <button class="dropbtn">Opciones</button>
+        <div class="dropdown-content">
+        <a href="/RegistrarCartera">Registrar Cartera</a>
+        <a href="/ConsultarCartera">Consultar Carteras</a>
+        <a href="/Login">Salir</a>
+        </div>
+    </div>
+    <div class="title">Bienvenido al Sistema</div>
+    </div>
+    <div class="main">
+    <h2>Seleccione una opción desde el menú.</h2>
+    </div>
+</body>
+</html>
+
